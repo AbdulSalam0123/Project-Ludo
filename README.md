@@ -1,15 +1,15 @@
-# **Ludo Duel**
+# **Ludo**
 
-![Ludo Duel Screenshot](https://i.postimg.cc/5NfyCm7D/Screenshot-2024-11-20-182353.png)
+![Ludol Screenshot](https://i.postimg.cc/5NfyCm7D/Screenshot-2024-11-20-182353.png)
 
-Ludo Duel is a two-player digital adaptation of the classic board game Ludo. Race your four tokens to the home base while strategizing against your opponent. The first player to get all four tokens safely into the home wins the game!
+Ludo is a two-player digital adaptation of the classic board game Ludo. Race your four tokens to the home base while strategizing against your opponent. The first player to get all four tokens safely into the home wins the game!
 
 ---
 
 ## **Getting Started**
 
 ### **Play the Game**
-[Click here to play Ludo Duel](Link_to_Game)
+[Click here to play Ludo](Link_to_Game)
 
 ### **How to Play**
 1. Click the dice to roll it and see your number.
