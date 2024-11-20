@@ -9,7 +9,7 @@ Ludo is a two-player digital adaptation of the classic board game Ludo. Race you
 ## **Getting Started**
 
 ### **Play the Game**
-[Click here to play Ludo](Link_to_Game)
+[Click here to play Ludo](https://embarrassed-cloth.surge.sh)
 
 ### **How to Play**
 1. Click the dice to roll it and see your number.
