@@ -1,124 +1,42 @@
 /*******************************Constants**********************************/
-const COORDINATES_MAP =
-{
-    0: [6, 13],
-    1: [6, 12],
-    2: [6, 11],
-    3: [6, 10],
-    4: [6, 9],
-    5: [5, 8],
-    6: [4, 8],
-    7: [3, 8],
-    8: [2, 8],
-    9: [1, 8],
-    10: [0, 8],
-    11: [0, 7],
-    12: [0, 6],
-    13: [1, 6],
-    14: [2, 6],
-    15: [3, 6],
-    16: [4, 6],
-    17: [5, 6],
-    18: [6, 5],
-    19: [6, 4],
-    20: [6, 3],
-    21: [6, 2],
-    22: [6, 1],
-    23: [6, 0],
-    24: [7, 0],
-    25: [8, 0],
-    26: [8, 1],
-    27: [8, 2],
-    28: [8, 3],
-    29: [8, 4],
-    30: [8, 5],
-    31: [9, 6],
-    32: [10, 6],
-    33: [11, 6],
-    34: [12, 6],
-    35: [13, 6],
-    36: [14, 6],
-    37: [14, 7],
-    38: [14, 8],
-    39: [13, 8],
-    40: [12, 8],
-    41: [11, 8],
-    42: [10, 8],
-    43: [9, 8],
-    44: [8, 9],
-    45: [8, 10],
-    46: [8, 11],
-    47: [8, 12],
-    48: [8, 13],
-    49: [8, 14],
-    50: [7, 14],
-    51: [6, 14],
-    // HOME ENTRANCE
-    // P1
-    100: [7, 13],
-    101: [7, 12],
-    102: [7, 11],
-    103: [7, 10],
-    104: [7, 9],
-    105: [7, 8],
-    // P2
-    200: [7, 1],
-    201: [7, 2],
-    202: [7, 3],
-    203: [7, 4],
-    204: [7, 5],
-    205: [7, 6],
 
-    // BASE POSITIONS
-    // P1
-    500: [1.5, 10.58],
-    501: [3.57, 10.58],
-    502: [1.5, 12.43],
-    503: [3.57, 12.43],
-    // P2
-    600: [10.5, 1.58],
-    601: [12.54, 1.58],
-    602: [10.5, 3.45],
-    603: [12.54, 3.45],
+const stepLength = 6.66;
+const players = ['P1', 'P2'];
+const basePositions = 
+{
+    P1: [81, 82, 83, 84],
+    P2: [96, 97, 98, 99],
 };
 
-const STEP_LENGTH = 6.66;
-const PLAYERS = ['P1', 'P2'];
-const BASE_POSITIONS = 
-{
-    P1: [500, 501, 502, 503],
-    P2: [600, 601, 602, 603],
-};
-
-const START_POSITIONS = 
+const startPositions = 
 {
     P1: 0,
     P2: 26
 };
 
-const HOME_ENTRANCE = 
+const homeEntrance = 
 {
-    P1: [100, 101, 102, 103, 104],
-    P2: [200, 201, 202, 203, 204]
+    P1: [60, 61, 62, 63, 64],
+    P2: [75, 76, 77, 78, 79]
 };
 
-const HOME_POSITIONS = 
+const homePositions = 
 {
-    P1: 105,
-    P2: 205
+    P1: 65,
+    P2: 80
 };
 
-const TURNING_POINTS = 
+const turningPoints = 
 {
     P1: 50,
     P2: 24
 };
 
-const SAFE_POSITIONS = [0, 8, 13, 21, 26, 34, 39, 47];
-const STATE =
+const safePositions = [0, 8, 13, 21, 26, 34, 39, 47];
+const states =
 {
-    DICE_NOT_ROLLED: 'DICE_NOT_ROLLED',
-    DICE_ROLLED: 'DICE_ROLLED',
+    diceNotRolled: 'Dice Not Rolled',
+    diceRolled: 'Dice Rolled',
 };
 
 
@@ -130,8 +48,25 @@ const playerPiecesElements =
 };
 
 
+const coordinatesMapping =
+{
+    // Steps
+    0: [6, 13], 1: [6, 12], 2: [6, 11], 3: [6, 10], 4: [6, 9], 5: [5, 8], 6: [4, 8], 7: [3, 8], 8: [2, 8], 9: [1, 8], 10: [0, 8], 11: [0, 7], 12: [0, 6], 13: [1, 6], 14: [2, 6], 15: [3, 6], 16: [4, 6], 17: [5, 6], 18: [6, 5], 19: [6, 4], 20: [6, 3], 21: [6, 2], 22: [6, 1], 23: [6, 0], 24: [7, 0], 25: [8, 0], 26: [8, 1], 27: [8, 2], 28: [8, 3], 29: [8, 4], 30: [8, 5], 31: [9, 6], 32: [10, 6], 33: [11, 6], 34: [12, 6], 35: [13, 6], 36: [14, 6], 37: [14, 7], 38: [14, 8], 39: [13, 8], 40: [12, 8], 41: [11, 8], 42: [10, 8], 43: [9, 8], 44: [8, 9], 45: [8, 10], 46: [8, 11], 47: [8, 12], 48: [8, 13], 49: [8, 14], 50: [7, 14], 51: [6, 14],
+    // Homes
+    // For Player1
+    60: [7, 13], 61: [7, 12], 62: [7, 11], 63: [7, 10], 64: [7, 9], 65: [7, 8],
+    // For Player2
+    75: [7, 1], 76: [7, 2], 77: [7, 3], 78: [7, 4], 79: [7, 5], 80: [7, 6],
+
+    // Bases
+    // For Player1
+    81: [1.5, 10.58], 82: [3.57, 10.58], 83: [1.5, 12.43], 84: [3.57, 12.43],
+    // For Player2
+    96: [10.5, 1.58], 97: [12.54, 1.58], 98: [10.5, 3.45], 99: [12.54, 3.45],
+};
+
 /*****************Classes, Functions and EventListeners***********************/
-class UI
+class frontEnd
 {
     static listenDiceClick = (callback) =>
     {
@@ -156,22 +91,17 @@ class UI
             return;
         }
 
-        const [x, y] = COORDINATES_MAP[newPosition];
+        const [x, y] = coordinatesMapping[newPosition];
 
         const pieceElement = playerPiecesElements[player][piece];
-        pieceElement.style.top = y * STEP_LENGTH + '%';
-        pieceElement.style.left = x * STEP_LENGTH + '%';
+        pieceElement.style.top = y * stepLength + '%';
+        pieceElement.style.left = x * stepLength + '%';
     }
 
     static setTurn = (index) => 
-        {
-        if(index < 0 || index >= PLAYERS.length) 
-        {
-            return;
-        }
+    {
 
-        const player = PLAYERS[index];
-        // Display player ID
+        const player = players[index];
         document.querySelector('.active-player span').innerText= player;
 
         const activePlayerBase = document.querySelector('.player-base.highlight');
@@ -180,7 +110,6 @@ class UI
             activePlayerBase.classList.remove('highlight');
         }
 
-        // highlight
         document.querySelector(`[player-id="${player}"].player-base`).classList.add('highlight');
     }
 
@@ -217,8 +146,8 @@ class UI
     }
 }
 
-// Ludo Class
-class Ludo
+
+class ludoGame
 {
     currentPositions =
     {
@@ -234,7 +163,7 @@ class Ludo
     set diceValue(value)
     {
         this._diceValue = value;
-        UI.setDiceValue(value);
+        frontEnd.setDiceValue(value);
     }
 
     _turn;
@@ -245,7 +174,7 @@ class Ludo
     set turn(value)
     {
         this._turn = value;
-        UI.setTurn(value);
+        frontEnd.setTurn(value);
     }
 
     _state;
@@ -257,14 +186,14 @@ class Ludo
     {
         this._state = value;
 
-        if(value === STATE.DICE_NOT_ROLLED)
+        if(value === states.diceNotRolled)
         {
-            UI.enableDice();
-            UI.unhighlightPieces();
+            frontEnd.enableDice();
+            frontEnd.unhighlightPieces();
         }
         else
         {
-            UI.disableDice();
+            frontEnd.disableDice();
         }
     }
 
@@ -278,26 +207,24 @@ class Ludo
 
     listenDiceClick = () =>
     {
-        UI.listenDiceClick(this.onDiceClick);
+        frontEnd.listenDiceClick(this.onDiceClick);
     }
 
     onDiceClick = () =>
     {
         this.diceValue = 1 + Math.floor(Math.random() * 6);
-        this.state = STATE.DICE_ROLLED;
+        this.state = states.diceRolled;
 
         this.checkForEligiblePieces();
     }
 
     checkForEligiblePieces = () =>
     {
-        const player = PLAYERS[this.turn];
-        // Eligible pieces of given player
+        const player = players[this.turn]
         const eligiblePieces = this.getEligiblePieces(player);
         if(eligiblePieces.length) 
         {
-            // Highlight the pieces
-            UI.highlightPieces(player, eligiblePieces);
+            frontEnd.highlightPieces(player, eligiblePieces);
         }
         else
         {
@@ -308,7 +235,7 @@ class Ludo
     incrementTurn = () =>
     {
         this.turn = this.turn === 0 ? 1 : 0;
-        this.state = STATE.DICE_NOT_ROLLED;
+        this.state = states.diceNotRolled;
     }
 
     getEligiblePieces = (player) =>
@@ -318,17 +245,17 @@ class Ludo
             const currentPosition =
              this.currentPositions[player][piece];
 
-            if(currentPosition === HOME_POSITIONS[player])
+            if(currentPosition === homePositions[player])
             {
                 return false;
             }
 
-            if(BASE_POSITIONS[player].includes(currentPosition) && this.diceValue !== 6)
+            if(basePositions[player].includes(currentPosition) && this.diceValue !== 6)
             {
                 return false;
             }
 
-            if( HOME_ENTRANCE[player].includes(currentPosition) && this.diceValue > HOME_POSITIONS[player]  - currentPosition)
+            if( homeEntrance[player].includes(currentPosition) && this.diceValue > homePositions[player]  - currentPosition)
             {
                 return false;
             }
@@ -339,14 +266,14 @@ class Ludo
 
     listenResetClick = () =>
     {
-        UI.listenResetClick(this.resetGame);
+        frontEnd.listenResetClick(this.resetGame);
     }
 
     resetGame = () =>
     {
-        this.currentPositions = structuredClone(BASE_POSITIONS);
+        this.currentPositions = structuredClone(basePositions);
 
-        PLAYERS.forEach(player =>
+        players.forEach(player =>
         {
             [0, 1, 2, 3].forEach(piece =>
             {
@@ -355,12 +282,12 @@ class Ludo
         });
 
         this.turn = 0;
-        this.state = STATE.DICE_NOT_ROLLED;
+        this.state = states.diceNotRolled;
     }
 
     listenPieceClick = () =>
     {
-        UI.listenPieceClick(this.onPieceClick);
+        frontEnd.listenPieceClick(this.onPieceClick);
     }
 
     onPieceClick = (event) =>
@@ -382,21 +309,21 @@ class Ludo
         const currentPosition =
         this.currentPositions[player][piece];
 
-        if(BASE_POSITIONS[player].includes(currentPosition))
+        if(basePositions[player].includes(currentPosition))
         {
-            this.setPiecePosition(player, piece,START_POSITIONS[player]);
-            this.state = STATE.DICE_NOT_ROLLED;
+            this.setPiecePosition(player, piece,startPositions[player]);
+            this.state = states.diceNotRolled;
             return;
         }
 
-        UI.unhighlightPieces();
+        frontEnd.unhighlightPieces();
         this.movePiece(player, piece, this.diceValue);
     }
 
     setPiecePosition = (player, piece, newPosition) =>
     {
         this.currentPositions[player][piece] = newPosition;
-        UI.setPiecePosition(player, piece, newPosition);
+        frontEnd.setPiecePosition(player, piece, newPosition);
     }
 
     movePiece = (player, piece, moveBy) =>
@@ -409,8 +336,6 @@ class Ludo
             if(moveBy === 0)
             {
                 clearInterval(interval);
-
-                // check if player won
                 if(this.hasPlayerWon(player))
                 {
                     document.querySelector('.Player-won span').innerText= `${player} has won.`;
@@ -419,10 +344,9 @@ class Ludo
                 }
 
                 const isKill = this.checkForKill(player, piece);
-
                 if(isKill || this.diceValue === 6)
                 {
-                    this.state = STATE.DICE_NOT_ROLLED;
+                    this.state = states.diceNotRolled;
                     return;
                 }
 
@@ -439,13 +363,13 @@ class Ludo
         let kill = false;
 
         [0, 1, 2, 3].forEach(piece =>
-            {
+        {
             const opponentPosition = this.currentPositions[opponent][piece];
 
-            if(currentPosition === opponentPosition && !SAFE_POSITIONS.includes(currentPosition))
+            if(currentPosition === opponentPosition && !safePositions.includes(currentPosition))
             {
                 this.setPiecePosition(opponent, piece,
-                BASE_POSITIONS[opponent][piece]);
+                basePositions[opponent][piece]);
                 kill = true;
             }
         });
@@ -456,7 +380,7 @@ class Ludo
     hasPlayerWon = (player) =>
     {
         return [0, 1, 2, 3].every(piece =>
-        this.currentPositions[player][piece] === HOME_POSITIONS[player]);
+        this.currentPositions[player][piece] === homePositions[player]);
     }
 
     incrementPiecePosition = (player, piece) =>
@@ -468,9 +392,9 @@ class Ludo
     {
         const currentPosition = this.currentPositions[player][piece];
 
-        if(currentPosition === TURNING_POINTS[player])
+        if(currentPosition === turningPoints[player])
         {
-            return HOME_ENTRANCE[player][0];
+            return homeEntrance[player][0];
         }
         else if(currentPosition === 51)
         {
@@ -480,4 +404,4 @@ class Ludo
     }
 }
 
-const game = new Ludo();
+const game = new ludoGame();
